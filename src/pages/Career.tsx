@@ -17,8 +17,7 @@ const Carrer = () => {
         }));
     };
 
-    const sendData = () => {
-        
+    const sendData = () => {   
         if (Object.values(authData).some(value => value === '')) {
             Swal.fire({
                 icon: "error",

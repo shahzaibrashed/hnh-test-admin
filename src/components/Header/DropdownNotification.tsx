@@ -58,7 +58,7 @@ const DropdownNotification = () => {
                 >
                   <p className="text-sm">
                     <span className="text-black dark:text-white">
-                      Edit your information in a swipe
+                      Ascention People
                     </span>{' '}
                     Sint occaecat cupidatat non proident, sunt in culpa qui
                     officia deserunt mollit anim.
@@ -74,7 +74,7 @@ const DropdownNotification = () => {
                 >
                   <p className="text-sm">
                     <span className="text-black dark:text-white">
-                      It is a long established fact
+                    Ascention Querry
                     </span>{' '}
                     that a reader will be distracted by the readable.
                   </p>
@@ -89,7 +89,7 @@ const DropdownNotification = () => {
                 >
                   <p className="text-sm">
                     <span className="text-black dark:text-white">
-                      There are many variations
+                     Ascention chart
                     </span>{' '}
                     of passages of Lorem Ipsum available, but the majority have
                     suffered
@@ -105,7 +105,7 @@ const DropdownNotification = () => {
                 >
                   <p className="text-sm">
                     <span className="text-black dark:text-white">
-                      There are many variations
+                    Ascention
                     </span>{' '}
                     of passages of Lorem Ipsum available, but the majority have
                     suffered

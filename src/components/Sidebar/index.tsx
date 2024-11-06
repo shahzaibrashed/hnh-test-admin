@@ -2,6 +2,12 @@ import React, { useEffect, useRef, useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import SidebarLinkGroup from './SidebarLinkGroup';
 import Logo from '../../Assests/Images/FFF_Ascension_LO 1.png';
+import { FaPeopleRoof } from "react-icons/fa6";
+import { PiSealQuestionFill } from "react-icons/pi";
+import { FaChild } from "react-icons/fa6";
+import { FaEnvelopeOpenText } from "react-icons/fa";
+import { BsGift } from "react-icons/bs";
+import { GrContactInfo } from "react-icons/gr";
 
 interface SidebarProps {
   sidebarOpen: boolean;
@@ -16,9 +22,18 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
   const sidebar = useRef<any>(null);
 
   const storedSidebarExpanded = localStorage.getItem('sidebar-expanded');
+
+  
   const [sidebarExpanded, setSidebarExpanded] = useState(
     storedSidebarExpanded === null ? false : storedSidebarExpanded === 'true'
   );
+
+  const handleNavClick = () => {
+    if (sidebarOpen) {
+      setSidebarOpen(false);
+    }
+  };
+
 
   // close on click outside
   useEffect(() => {
@@ -108,19 +123,14 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                   return (
                     <React.Fragment>
                       <NavLink
+                      onClick={handleNavClick}
                         to="/"
-                        className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
-                          (!pathname.includes('/ChoseQuestion') && !pathname.includes('/Villagers') && !pathname.includes('/ChoseQuestion') && !pathname.includes('/Child') && !pathname.includes('/Carrer') && 
+                        className={`group relative border border-r-[transparent] border-l-[transparent] border-t-[transparent] border-b-[red] flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
+                          (!pathname.includes('/ChoseQuestion') && !pathname.includes('/Villagers') && !pathname.includes ('/ChoseQuestion') && !pathname.includes('/Child') && !pathname.includes('/Carrer') && 
                           !pathname.includes('/Shops') && 
                           !pathname.includes('/AddChild')) ?
                           'bg-graydark dark:bg-meta-4' : null
                         }`}
-                        // onClick={(e) => {
-                        //   e.preventDefault();
-                        //   sidebarExpanded
-                        //     ? handleClick()
-                        //     : setSidebarExpanded(true);
-                        // }}
                       >
                         <svg
                           className="fill-current"
@@ -196,6 +206,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               {/* <!-- Menu Item Chose Question --> */}
               <li>
                 <NavLink
+                onClick={handleNavClick}
                   to="/ChoseQuestion"
                   className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
                     pathname.includes('/ChoseQuestion') &&
@@ -203,7 +214,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                   }`}
                 >
                  
-                 Chose Questions
+               <PiSealQuestionFill/>  Chose Questions
                 </NavLink>
               </li>
               {/* <!-- Menu Item Chose Question --> */}
@@ -211,13 +222,14 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               {/* <!-- Menu Item Villages --> */}
               <li>
                 <NavLink
+                onClick={handleNavClick}
                   to="/Villagers"
                   className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
                     pathname.includes('/Villagers') && 'bg-graydark dark:bg-meta-4'
                   }`}
                 >
                  
-                  Villagers
+                 <FaPeopleRoof/> Villagers
                 </NavLink>
               </li>
               {/* <!-- Menu Item Villagers--> */}
@@ -225,13 +237,14 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               {/* <!-- Menu Item Child --> */}
               <li>
                 <NavLink
+                onClick={handleNavClick}
                   to="/Child"
                   className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
                     pathname.includes('/Child') && 'bg-graydark dark:bg-meta-4'
                   }`}
                 >
                  
-                  Child
+                <FaChild />  Child
                 </NavLink>
               </li>
               {/* <!-- Menu Item Child --> */}
@@ -239,6 +252,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               {/* <!-- Menu Item Career --> */}
               <li>
                 <NavLink
+                onClick={handleNavClick}
                   to="/Carrer"
                   className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
                     pathname.includes('/Carrer') &&
@@ -246,7 +260,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                   }`}
                 >
                   
-                  Carrer
+                <FaEnvelopeOpenText/>  Carrer
                 </NavLink>
               </li>
               {/* <!-- Menu Item Career --> */}
@@ -255,6 +269,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                {/* <!-- Menu Item Shops --> */}
                <li>
                 <NavLink
+                onClick={handleNavClick}
                   to="/Shops"
                   className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
                     pathname.includes('/Shops') &&
@@ -262,7 +277,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                   }`}
                 >
                   
-                  Shops
+                <BsGift />  Shops
                 </NavLink>
               </li>
               {/* <!-- Menu Item Shops --> */}
@@ -270,6 +285,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                 {/* <!-- ADD CHILD INFO --> */}
                 <li>
                 <NavLink
+                onClick={handleNavClick}
                   to="/AddChild"
                   className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
                     pathname.includes('/AddChild') &&
@@ -277,7 +293,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                   }`}
                 >
                   
-                 Add Child Info
+                <GrContactInfo/> Add Child Info
                 </NavLink>
               </li>
               {/* <!-- ADD CHILD INFO --> */}
@@ -285,6 +301,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                 {/* <!-- ADD logout  --> */}
               <li>
                 <NavLink
+                onClick={handleNavClick}
                   to="/"
                   className={`group flex absolute bottom-4 items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
                     pathname.includes('/login') &&
